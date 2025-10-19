@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneFrenzy - Discount Dash</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .deal-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i data-feather="smartphone" class="text-primary h-8 w-8"></i>
+                <span class="text-xl font-bold text-gray-800">PhoneFrenzy</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-700 hover:text-primary transition">Home</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition">Deals</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition">Categories</a>
+                <a href="#" class="text-gray-700 hover:text-primary transition">New Arrivals</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search phones..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-64">
+                    <i data-feather="search" class="absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                    <i data-feather="shopping-cart" class="text-gray-600"></i>
+                </button>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                    <i data-feather="user" class="text-gray-600"></i>
+                </button>
+            </div>
+            
+            <button class="md:hidden">
+                <i data-feather="menu" class="text-gray-600 h-6 w-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary to-secondary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Upgrade Your Phone <br>For Less!</h1>
+                    <p class="text-xl mb-6">Daily flash sales with discounts up to 80% off on the latest smartphones</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-primary px-6 py-3 rounded-full font-medium hover:shadow-lg transition">Shop Now</button>
+                        <button class="border-2 border-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-primary transition">Learn More</button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="http://static.photos/technology/640x360/42" alt="Smartphones" class="rounded-lg shadow-2xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale Countdown -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i data-feather="zap" class="text-yellow-500 mr-2"></i>
+                    <h2 class="text-xl font-bold">FLASH SALE</h2>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-500">Ends in:</span>
+                    <div class="bg-gray-800 text-white px-3 py-1 rounded font-mono">02</div>
+                    <span>:</span>
+                    <div class="bg-gray-800 text-white px-3 py-1 rounded font-mono">45</div>
+                    <span>:</span>
+                    <div class="bg-gray-800 text-white px-3 py-1 rounded font-mono">18</div>
+                </div>
+                <a href="#" class="text-primary font-medium flex items-center">
+                    View All <i data-feather="chevron-right" class="ml-1 h-4 w-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8">Today's Hottest Deals</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product Card 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="http://static.photos/technology/640x360/1" alt="iPhone 13" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded deal-badge">-32%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">iPhone 13 Pro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(128)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-gray-800">$899</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$1,299</span>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="text-green-600 text-sm font-medium">Free shipping</span>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-primary-dark transition">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="http://static.photos/technology/640x360/2" alt="Samsung Galaxy S22" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded deal-badge">-45%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Samsung Galaxy S22 Ultra</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(97)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-gray-800">$749</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$1,199</span>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="text-green-600 text-sm font-medium">Only 3 left!</span>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-primary-dark transition">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="http://static.photos/technology/640x360/3" alt="Google Pixel 6" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded deal-badge">-28%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">Google Pixel 6 Pro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(84)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-gray-800">$649</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$899</span>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="text-green-600 text-sm font-medium">Free shipping</span>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-primary-dark transition">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="http://static.photos/technology/640x360/4" alt="OnePlus 10 Pro" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded deal-badge">-37%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-1">OnePlus 10 Pro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-xs ml-1">(76)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-gray-800">$699</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">$1,099</span>
+                        </div>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="text-green-600 text-sm font-medium">In stock</span>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-primary-dark transition">
+                                <i data-feather="shopping-cart" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8">Shop By Brand</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                <div class="category-card bg-gray-100 rounded-lg p-6 flex flex-col items-center hover:bg-gray-200 transition cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="h-12 mb-3">
+                    <span class="font-medium">Apple</span>
+                </div>
+                <div class="category-card bg-gray-100 rounded-lg p-6 flex flex-col items-center hover:bg-gray-200 transition cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" class="h-12 mb-3">
+                    <span class="font-medium">Samsung</span>
+                </div>
+                <div class="category-card bg-gray-100 rounded-lg p-6 flex flex-col items-center hover:bg-gray-200 transition cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Play_Store_logo.svg" alt="Google" class="h-12 mb-3">
+                    <span class="font-medium">Google</span>
+                </div>
+                <div class="category-card bg-gray-100 rounded-lg p-6 flex flex-col items-center hover:bg-gray-200 transition cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/OnePlus_logo.svg" alt="OnePlus" class="h-12 mb-3">
+                    <span class="font-medium">OnePlus</span>
+                </div>
+                <div class="category-card bg-gray-100 rounded-lg p-6 flex flex-col items-center hover:bg-gray-200 transition cursor-pointer">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Xiaomi_logo.svg" alt="Xiaomi" class="h-12 mb-3">
+                    <span class="font-medium">Xiaomi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Get Exclusive Deals</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Subscribe to our newsletter and be the first to know about flash sales, new arrivals, and special discounts!</p>
+            <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="px-4 py-3 rounded-l-full sm:rounded-r-none rounded-r-full w-full text-gray-800 focus:outline-none">
+                <button class="bg-gray-900 text-white px-6 py-3 rounded-r-full sm:rounded-l-none rounded-l-full sm:mt-0 mt-2 hover:bg-black transition">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-feather="smartphone" class="text-primary h-6 w-6 mr-2"></i>
+                        <span class="text-xl font-bold">PhoneFrenzy</span>
+                    </div>
+                    <p class="text-gray-400">Your one-stop shop for the best smartphone deals on the internet.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Smartphones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Deals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Help</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Customer Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Track Order</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Returns & Refunds</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i data-feather="map-pin" class="mr-2 h-4 w-4"></i> 123 Tech Street, Silicon Valley</li>
+                        <li class="flex items-center text-gray-400"><i data-feather="mail" class="mr-2 h-4 w-4"></i> support@phonefrenzy.com</li>
+                        <li class="flex items-center text-gray-400"><i data-feather="phone" class="mr-2 h-4 w-4"></i> +1 (800) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 PhoneFrenzy. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Simple countdown timer for the flash sale
+        function updateCountdown() {
+            const hoursElement = document.querySelector('.countdown-hours');
+            const minutesElement = document.querySelector('.countdown-minutes');
+            const secondsElement = document.querySelector('.countdown-seconds');
+            
+            let hours = parseInt(hoursElement.textContent);
+            let minutes = parseInt(minutesElement.textContent);
+            let seconds = parseInt(secondsElement.textContent);
+            
+            seconds--;
+            
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    
+                    if (hours < 0) {
+                        // Sale ended
+                        hours = 0;
+                        minutes = 0;
+                        seconds = 0;
+                    }
+                }
+            }
+            
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
